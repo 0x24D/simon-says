@@ -1,0 +1,6 @@
+# simon-says
+
+A text-based c++ implementation of the 'Simon Says' memory game.
+https://en.wikipedia.org/wiki/Simon_(game)
+
+This project will be used to get back up to speed with c++ programming after ~1 year programming in Java. This project will also be developed using Anjuta on Debian rather than Visual Studio on Windows 7 as prior c++ projects.
