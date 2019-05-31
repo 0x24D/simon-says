@@ -19,6 +19,8 @@ char getColour(const int &num) {
     return 'R';
   case YELLOW:
     return 'Y';
+  default:
+    return '\0';
   }
 }
 
@@ -27,13 +29,13 @@ int main() {
   std::mt19937 gen(rd());
   std::uniform_int_distribution<> dis(0, 3);
   bool endGame = false;
+  int score = 0;
   std::deque<char> colours;
   do {
     colours.emplace_back(getColour(dis(gen)));
     std::cout << "Colour sequence:";
     for (char c : colours) {
       std::cout << c;
-      // need to sleep and print carriage return to overwrite char
     }
     std:: cout << "\nEnter colour sequence: ";
     for (char c : colours) {
@@ -45,9 +47,10 @@ int main() {
       }
     }
     if (endGame) {
-      std::cout << "Incorrect sequence! Ending game.\n";
+      std::cout << "Incorrect sequence! Ending game. Final score: " << score << '\n';
     } else {
-      std::cout << "Correct sequence! Next level starting.\n";
+      ++score;
+      std::cout << "Correct sequence! Starting level " << (score + 1) << '\n';
     }
   } while (!endGame);
   return 0;
